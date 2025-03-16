@@ -574,7 +574,9 @@ where
     /// assert_eq!(map.get(MyKey::Two), Some(&"c"));
     /// ```
     #[inline]
-    pub fn insert(&mut self, key: K, value: V) -> Option<V> {
+    pub const fn insert(&mut self, key: K, value: V) -> Option<V>
+        where <K as Key>::MapStorage<V>: ~const MapStorage<K, V>,
+    {
         self.storage.insert(key, value)
     }
 

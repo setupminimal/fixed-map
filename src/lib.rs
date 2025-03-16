@@ -287,6 +287,8 @@
 #![allow(clippy::module_name_repetitions)]
 #![allow(clippy::type_repetition_in_bounds)]
 
+#![feature(const_trait_impl)]
+
 pub mod raw;
 
 mod key;

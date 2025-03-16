@@ -22,6 +22,7 @@ use crate::map::Entry;
 ///
 /// - `K` is the key being stored.
 /// - `V` is the value being stored.
+#[const_trait]
 pub trait MapStorage<K, V>: Sized {
     /// Immutable iterator over storage.
     type Iter<'this>: Iterator<Item = (K, &'this V)>

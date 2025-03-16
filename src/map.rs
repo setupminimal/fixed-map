@@ -180,7 +180,9 @@ where
     /// ```
     #[inline]
     #[must_use]
-    pub fn new() -> Map<K, V> {
+    pub const fn new() -> Map<K, V>
+        where <K as Key>::MapStorage<V>: ~const MapStorage<K, V>,
+    {
         Map {
             storage: K::MapStorage::empty(),
         }
